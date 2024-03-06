@@ -35,7 +35,7 @@ const Selects: React.FC<SelectProps> = ({
   onChange,
   number,
 }) => {
-  const newName = number + name;
+  const newName = name + number;
   const keys = errorsOption ? Object.keys(errorsOption) : [];
   return (
     <>
@@ -65,7 +65,7 @@ const Selects: React.FC<SelectProps> = ({
               }
             />
           )}
-          name={name}
+          name={newName}
           rules={errorsOption}
           defaultValue={defaultValue ? defaultValue : options[0].value}
         />

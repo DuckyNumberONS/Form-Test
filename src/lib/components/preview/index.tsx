@@ -1,11 +1,20 @@
 import React from "react";
 import { Card, Text, BlockStack, DataTable } from "@shopify/polaris";
+import { useSelector } from "react-redux";
+import { option } from "../../redux/selector/optionSelect";
 
 const Preview = () => {
-  const rows = [
-    ["Single", "None", 1, ""],
-    ["Duo", "%discount", 2, "10%"],
-  ];
+  const options = useSelector(option);
+  const rows = options.map((item: any) => {
+    const { number, amount, label, subtitle, ...rest } = item;
+    const values = Object.values(rest);
+    if (amount === 0) {
+      values.push(null);
+    }
+    return values;
+  });
+  console.log("🚀 ~ rows ~ rows:", rows);
+
   return (
     <BlockStack gap="400">
       <Card background="bg-surface">

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import useTransformData from "../../hook/useTransformed";
 
 interface PropsForm {
   children: (props: any) => React.JSX.Element;
@@ -12,8 +13,11 @@ const Form: React.FC<PropsForm> = ({ children }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log("Data success", data);
+  const [data, setData] = useState();
+  const transData = useTransformData(data);
+
+  const onSubmit = (dataSubmit: any) => {
+    setData(dataSubmit);
   };
   return (
     <form action="#" onSubmit={handleSubmit(onSubmit)}>
