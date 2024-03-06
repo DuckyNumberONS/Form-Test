@@ -20,7 +20,6 @@ const BoxOption: React.FC<PropsBoxOption> = ({
   number,
   defaultValue,
 }) => {
-  console.log("🚀 ~ defaultValue:", defaultValue);
   const dispatch = useDispatch();
   const handleRemoveOption = (number: number) => {
     dispatch(removeOption(number));
@@ -64,9 +63,14 @@ const BoxOption: React.FC<PropsBoxOption> = ({
               justifyContent: "flex-end",
               cursor: "pointer",
             }}
-            onClick={() => handleRemoveOption(number)}
           >
-            <img src="./images/trash.png" alt="trash" width={24} height={24} />
+            <img
+              onClick={() => handleRemoveOption(number)}
+              src="./images/trash.png"
+              alt="trash"
+              width={24}
+              height={24}
+            />
           </div>
           {/* Form products  */}
           <div style={{ marginTop: 10, paddingBottom: 60 }}>
@@ -81,7 +85,7 @@ const BoxOption: React.FC<PropsBoxOption> = ({
                 }}
                 control={control}
                 number={number}
-                defaultValue={defaultValue?.title}
+                defaultValue={defaultValue && defaultValue?.title}
               />
               <Input
                 label="Subtitle"

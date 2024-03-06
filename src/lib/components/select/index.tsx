@@ -35,6 +35,7 @@ const Selects: React.FC<SelectProps> = ({
   onChange,
   number,
 }) => {
+  const newName = number + name;
   const keys = errorsOption ? Object.keys(errorsOption) : [];
   return (
     <>
@@ -53,11 +54,11 @@ const Selects: React.FC<SelectProps> = ({
               placeholder={placeholder}
               error={
                 errors &&
-                errors?.[name]?.message &&
+                errors?.[newName]?.message &&
                 keys.map((items) => (
                   <div key={items}>
-                    {errors?.[name]?.type === items && (
-                      <p>{errors?.[name]?.message}</p>
+                    {errors?.[newName]?.type === items && (
+                      <p>{errors?.[newName]?.message}</p>
                     )}
                   </div>
                 ))

@@ -32,6 +32,7 @@ const Input: React.FC<InputProps> = ({
   type,
   number,
 }) => {
+  const newName = number + name;
   const keys = errorsOption ? Object.keys(errorsOption) : [];
   const handleChange = (value: any) => {
     const ob = {
@@ -43,14 +44,14 @@ const Input: React.FC<InputProps> = ({
     <div style={style}>
       <Controller
         control={control}
-        name={name}
+        name={newName}
         rules={errorsOption}
         defaultValue={defaultValue}
         render={({ field }) => (
           <>
             <TextField
               label={label}
-              name={number + name}
+              name={newName}
               type={type}
               placeholder={placeholder}
               value={field.value}
@@ -62,11 +63,11 @@ const Input: React.FC<InputProps> = ({
               suffix={unit ? unit : ""}
               error={
                 errors &&
-                errors?.[name]?.message &&
+                errors?.[newName]?.message &&
                 keys.map((items) => (
                   <div key={items}>
-                    {errors?.[name]?.type === items && (
-                      <p>{errors?.[name]?.message}</p>
+                    {errors?.[newName]?.type === items && (
+                      <p>{errors?.[newName]?.message}</p>
                     )}
                   </div>
                 ))
