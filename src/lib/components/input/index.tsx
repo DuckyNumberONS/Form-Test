@@ -32,13 +32,12 @@ const Input: React.FC<InputProps> = ({
   type,
   number,
 }) => {
-  const newName = number + name;
+  const newName = name + number;
   const keys = errorsOption ? Object.keys(errorsOption) : [];
   const handleChange = (value: any) => {
     const ob = {
       valu: value,
     };
-    console.log("🚀 ~ handleChange ~ ob:", ob);
   };
   return (
     <div style={style}>

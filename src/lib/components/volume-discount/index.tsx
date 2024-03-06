@@ -2,16 +2,33 @@ import { BlockStack, Box, Text } from "@shopify/polaris";
 import React, { useState } from "react";
 import BoxOption from "../box-option";
 import Form from "../form";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { option } from "../../redux/selector/optionSelect";
 import { OptionState } from "../../modal/option";
+import { defaultOption } from "../../config/defaultOpion";
+import { addOption } from "../../redux/action/option";
 interface PropsForm {
   error: any;
   control: any;
 }
 const VolumeDiscount = () => {
   const options = useSelector(option);
-  console.log("🚀 ~ VolumeDiscount ~ options:", options);
+  const dispatch = useDispatch();
+
+  const handleAddOption = () => {
+    const lastOption = options[options.length - 1];
+    const newOption = {
+      number: lastOption.number + 1,
+      title: " ",
+      subtitle: "",
+      label: "",
+      quantity: lastOption.quantity + 1,
+      discountType: "None",
+      amount: 0,
+    };
+    dispatch(addOption(newOption));
+  };
+
   return (
     <Form>
       {(props: PropsForm) => (
@@ -61,6 +78,7 @@ const VolumeDiscount = () => {
                 paddingBlock: 8,
                 gap: 6,
               }}
+              onClick={handleAddOption}
               type="submit"
             >
               <div

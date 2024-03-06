@@ -8,6 +8,7 @@ const INITIAL_STATE: OptionState[] = [
     label: "",
     quantity: 1,
     discountType: "None",
+    amount: 0,
   },
   {
     number: 2,
@@ -16,6 +17,7 @@ const INITIAL_STATE: OptionState[] = [
     label: "Popular",
     quantity: 2,
     discountType: "None",
+    amount: 0,
   },
 ];
 
