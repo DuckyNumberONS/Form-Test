@@ -10,7 +10,7 @@ interface PropsForm {
 
 const General = () => {
   return (
-    <Form>
+    <Form nameComponent="general">
       {(props: PropsForm) => (
         <BlockStack gap="100">
           <Card background="bg-surface">

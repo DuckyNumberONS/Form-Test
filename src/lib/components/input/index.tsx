@@ -46,14 +46,14 @@ const Input: React.FC<InputProps> = ({
     <div style={style}>
       <Controller
         control={control}
-        name={newName}
+        name={number ? newName : name}
         rules={errorsOption}
         defaultValue={defaultValue}
         render={({ field }) => (
           <>
             <TextField
               label={label}
-              name={newName}
+              name={number ? newName : name}
               type={type}
               placeholder={placeholder}
               value={field.value}
@@ -65,11 +65,11 @@ const Input: React.FC<InputProps> = ({
               suffix={unit ? unit : ""}
               error={
                 errors &&
-                errors?.[newName]?.message &&
+                errors?.[number ? newName : name]?.message &&
                 keys.map((items) => (
                   <div key={items}>
-                    {errors?.[newName]?.type === items && (
-                      <p>{errors?.[newName]?.message}</p>
+                    {errors?.[number ? newName : name]?.type === items && (
+                      <p>{errors?.[number ? newName : name]?.message}</p>
                     )}
                   </div>
                 ))
