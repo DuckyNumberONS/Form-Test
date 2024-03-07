@@ -9,7 +9,13 @@ const optionReducer = (state = INITIAL_STATE, action: any) => {
       return [...state, action.payload];
     case "REMOVE_OPTION":
       if (state.length > 1) {
-        return state.filter((option) => option.number !== action.payload);
+        const newState = state.filter(
+          (option) => option.number !== action.payload
+        );
+        return newState.map((option, index) => ({
+          ...option,
+          number: index + 1,
+        }));
       }
       return state;
     default:
