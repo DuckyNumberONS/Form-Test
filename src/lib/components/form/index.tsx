@@ -14,7 +14,6 @@ const Form: React.FC<PropsForm> = ({ children }) => {
   } = useForm();
 
   const [data, setData] = useState();
-  const transData = useTransformData(data);
 
   const onSubmit = (dataSubmit: any) => {
     setData(dataSubmit);
