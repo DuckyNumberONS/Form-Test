@@ -54,18 +54,18 @@ const Selects: React.FC<SelectProps> = ({
               placeholder={placeholder}
               error={
                 errors &&
-                errors?.[newName]?.message &&
+                errors?.[number ? newName : name]?.message &&
                 keys.map((items) => (
                   <div key={items}>
-                    {errors?.[newName]?.type === items && (
-                      <p>{errors?.[newName]?.message}</p>
+                    {errors?.[number ? newName : name]?.type === items && (
+                      <p>{errors?.[number ? newName : name]?.message}</p>
                     )}
                   </div>
                 ))
               }
             />
           )}
-          name={newName}
+          name={number ? newName : name}
           rules={errorsOption}
           defaultValue={defaultValue ? defaultValue : options[0].value}
         />
