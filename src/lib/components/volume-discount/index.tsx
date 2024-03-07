@@ -21,7 +21,7 @@ const VolumeDiscount = () => {
       title: " ",
       subtitle: "",
       label: "",
-      quantity: lastOption.quantity + 1,
+      quantity: parseInt(lastOption.quantity) + 1,
       discountType: "None",
       amount: 0,
     };
