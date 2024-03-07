@@ -6,6 +6,7 @@ export const defaultOption = [
     label: "",
     quantity: 1,
     discountType: "None",
+    amount: 0,
   },
   {
     number: 2,
@@ -14,5 +15,6 @@ export const defaultOption = [
     label: "Popular",
     quantity: 2,
     discountType: "None",
+    amount: 0,
   },
 ];
