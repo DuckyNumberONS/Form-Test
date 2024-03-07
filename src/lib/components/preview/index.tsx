@@ -13,7 +13,6 @@ const Preview = () => {
     }
     return values;
   });
-  console.log("🚀 ~ rows ~ rows:", rows);
 
   return (
     <BlockStack gap="400">
