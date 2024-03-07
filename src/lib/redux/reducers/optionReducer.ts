@@ -18,6 +18,17 @@ const optionReducer = (state = INITIAL_STATE, action: any) => {
         }));
       }
       return state;
+    case "UPDATE_OPTION":
+      return state.map((option) => {
+        if (option.number === action.payload.number) {
+          return {
+            ...option,
+            ...action.payload.fieldsToUpdate,
+          };
+        }
+        return option;
+      });
+
     default:
       return state;
   }

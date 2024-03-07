@@ -6,10 +6,12 @@ import { option } from "../../redux/selector/optionSelect";
 const Preview = () => {
   const options = useSelector(option);
   const rows = options.map((item: any) => {
-    const { number, amount, label, subtitle, ...rest } = item;
-    const values = Object.values(rest);
+    const { title, amount, discountType, quantity } = item;
+    let values = [title, discountType, quantity];
     if (amount === 0) {
       values.push(null);
+    } else {
+      values.push(amount);
     }
     return values;
   });

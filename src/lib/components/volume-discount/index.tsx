@@ -5,7 +5,6 @@ import Form from "../form";
 import { useDispatch, useSelector } from "react-redux";
 import { option } from "../../redux/selector/optionSelect";
 import { OptionState } from "../../modal/option";
-import { defaultOption } from "../../config/defaultOpion";
 import { addOption } from "../../redux/action/option";
 interface PropsForm {
   error: any;

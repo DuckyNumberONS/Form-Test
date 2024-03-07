@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { TextField } from "@shopify/polaris";
 import { Controller } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { updateOption } from "../../redux/action/option";
 
 type InputType = "text" | "password" | "number" | "email";
 
@@ -34,10 +36,11 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const newName = name + number;
   const keys = errorsOption ? Object.keys(errorsOption) : [];
+  const dispatch = useDispatch();
+
   const handleChange = (value: any) => {
-    const ob = {
-      valu: value,
-    };
+    const fieldsToUpdate = { [name]: value };
+    dispatch(updateOption(number, fieldsToUpdate));
   };
   return (
     <div style={style}>
